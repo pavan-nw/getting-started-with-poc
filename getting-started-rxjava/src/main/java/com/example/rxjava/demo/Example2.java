@@ -5,7 +5,6 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class Example2
                         System.out.println("Emitting from.. " + Thread.currentThread().getName());
                         emitter.onNext(todo);
                         Thread.sleep(300);
-                        throw new Exception();
+//                        throw new Exception();
                     }
                     emitter.onComplete();
                 }
