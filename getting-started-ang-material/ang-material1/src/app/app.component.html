@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<md-sidenav-container class="example-container">
+  <md-sidenav mode="push" #sidenav class="example-sidenav">
+    <md-toolbar>
+      <span>Side Bar</span>
+      <!-- <div layout="column">
+        <div flex>This is side bar</div>
+        <div flex>
+          <button md-menu-item><md-icon>edit</md-icon>Edit Profile</button>
+        </div>
+      </div> -->
+    </md-toolbar>
+    <button md-menu-item><md-icon>home</md-icon>Home</button>
+    <button md-menu-item><md-icon>share</md-icon>Share</button>
+    <button md-menu-item><md-icon>help</md-icon>Help</button>
+    <button md-menu-item><md-icon>clear</md-icon>Logout</button>
+  </md-sidenav>
+  
+  <div class="example-sidenav-content">
+    <md-toolbar color="primary">
+      <button md-button (click)="sidenav.open()"><md-icon>more vert</md-icon></button>
+      <span>MyCompany</span>
+      <span class="spacer"></span>
+      <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+      <md-menu #appMenu="mdMenu">
+        <button md-menu-item><md-icon>settings</md-icon>Settings</button>
+        <button md-menu-item><md-icon>help</md-icon>Help</button>
+      </md-menu>
+    </md-toolbar>
+    
+    <md-tab-group>
+      <md-tab label="Tab 1">
+        <md-card class="example-card" *ngFor="let data of (myData ? myData.slice(0,10): []); let i = index">
+          <img md-card-image src="{{ data.url }}">
+          <md-card-header>
+            <md-card-title>{{ data.title }}</md-card-title>
+          </md-card-header>
+          <md-card-actions>
+            <button md-button><md-icon>favorite</md-icon> LIKE</button>
+            <button md-button><md-icon>share</md-icon> SHARE</button>
+          </md-card-actions>
+        </md-card>
+      </md-tab>
+      <md-tab label="Tab 2">Content 2</md-tab>
+    </md-tab-group>
+
+  </div>
+</md-sidenav-container>
